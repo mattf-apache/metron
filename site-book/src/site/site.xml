@@ -29,7 +29,7 @@
     <custom>
         <fluidoSkin>
             <project>Apache Metron - Incubating</project>
-	    <topBarEnabled>true</topBarEnabled>
+	    <topBarEnabled>false</topBarEnabled>
             <sideBarEnabled>true</sideBarEnabled>
         </fluidoSkin>
     </custom>
