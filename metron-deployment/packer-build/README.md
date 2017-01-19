@@ -16,7 +16,7 @@ Prerequisites
 
 Build Both Images
 ---------------------- 
-  Navigate to <your-project-directory>/metron-deployment/packer-build
+  Navigate to \<your-project-directory\>/metron-deployment/packer-build
   Execute bin/bento build
   
   Packer will build both images and export .box files to the ./builds directory.
@@ -33,14 +33,18 @@ Using Your New Box File
 ---------------------- 
 Modify the relevant Vagrantfile (codelab-platform or quick-dev-platform) replacing the lines:
 
+```
 <pre><code>config.vm.box = "<i>box_name</i>"
 config.ssh.insert_key = true</code></pre>
+```
 
 with
 
+```
 <pre></code>config.vm.box = "<i>test_box_name</i>"
 config.vm.box = "<i>PathToBoxfile/Boxfilename</i>"
 config.ssh.insert_key = true</code></pre>
+```
 
 Launch the image as usual.
 
