@@ -33,7 +33,7 @@
 # since each README.md file is written independently.
 
 ## This script assumes it is running at $METRON_SOURCE/site-book/bin/
-METRON_SOURCE=`cd $(dirname $0); cd ../..; pwd`
+METRON_SOURCE=$(cd $(dirname $0); cd ../..; pwd)
 
 ## Maintainers set EXCLUSION_LIST to a list of egrep-style regular expressions.
 ## MD files whose file path that matches any of these patterns will be excluded.
@@ -41,7 +41,7 @@ METRON_SOURCE=`cd $(dirname $0); cd ../..; pwd`
 ## $METRON_SOURCE.  'Find' will start each path with './', which is matched by '^\./'.
 ## Please place each regex in single quotes, and don't forget to backslash-escape
 ## literal periods and other special characters if needed.
-EXCLUSION_LIST=(
+declare -a EXCLUSION_LIST=(
     '/site/'
     '/site-book/'
     '/build_utils/'
@@ -50,7 +50,7 @@ EXCLUSION_LIST=(
 ## This is a list of resources (eg .png files) needed to render the markdown files.
 ## Each entry is a file path, relative to $METRON_SOURCE.
 ## Note: any images in site-book/src/site/resources/image-archive/ will also be included.
-RESOURCE_LIST=(
+declare -a RESOURCE_LIST=(
     metron-platform/metron-parsers/parser_arch.png
     metron-platform/metron-indexing/indexing_arch.png
     metron-platform/metron-enrichment/enrichment_arch.png
@@ -60,7 +60,7 @@ RESOURCE_LIST=(
 ## This is a list of duples, flattened into a bash array.  Even fields are relative paths to a .md file
 ## that needs an href re-written to match a resource in the images/ directory.  Odd fields are the corresponding
 ## one-line sed script, in single quotes, that does the rewrite.  See below for examples.
-HREF_REWRITE_LIST=(
+declare -a HREF_REWRITE_LIST=(
     metron-platform/metron-enrichment/README.md 's#(enrichment_arch.png)#(../../images/enrichment_arch.png)#g'
     metron-platform/metron-indexing/README.md 's#(indexing_arch.png)#(../../images/indexing_arch.png)#g'
     metron-platform/metron-parsers/README.md 's#(parser_arch.png)#(../../images/parser_arch.png)#g'
@@ -100,11 +100,11 @@ function descend () {
     indent=$2
 
     if [ -e "${cum_dir_path}"/index.md ] ; then
-	dir_name=`basename "$cum_dir_path"`
+	dir_name=$(basename "$cum_dir_path")
 	dir_name="${dir_name#metron-}"  #remove the "metron-" prefix if present
-	dir_name=`get_prettyname "$dir_name"`  #capitalize the remainder
+	dir_name=$(get_prettyname "$dir_name")  #capitalize the remainder
 	# Is it a leaf node?
-	num_peers=`ls -d "${cum_dir_path}"/* |wc -l`
+	num_peers=$(ls -d "${cum_dir_path}"/* |wc -l)
 	if (( $num_peers == 1 )) ; then #yes, it's a leaf node, do a closed item
 	    echo "${INDENTS[$indent]}<item name='${dir_name}' href='${cum_dir_path}/index.html'/>" >> ../site.tmp
 	    tree_trace "exit descend due to leaf node"
@@ -118,7 +118,7 @@ function descend () {
     fi
     for md in "${cum_dir_path}"/*.md ; do
 	if [ ! -e "$md" ] ; then continue ; fi  #globbing sometimes gives spurious results
-	item_name=`basename -s ".md" "$md"`  #strip the suffix
+	item_name=$(basename -s ".md" "$md")  #strip the suffix
 	if [ "$item_name" != "index" ] ; then
 	    echo "${INDENTS[$indent]}<item name='${item_name}' href='${cum_dir_path}/${item_name}.html'/>" >> ../site.tmp
 	fi
@@ -143,6 +143,17 @@ function descend () {
 function get_prettyname () {
     echo "$(tr '[:lower:]' '[:upper:]' <<< ${1:0:1})${1:1}"
 }
+
+# Function to cleanup and then exit
+function quit () {
+    exitCode=${1:-0}
+    rm -f "${METRON_SOURCE}/site-book/src/site/markdown/${errfile}"
+    exit $exitCode
+}
+
+trap 'quit 129' SIGHUP
+trap 'quit 130' SIGINT
+trap 'quit 143' SIGTERM
 
 
 ######################
@@ -170,7 +181,7 @@ cmd="find . -name '*.md' -print ${cmd}"
 echo " "
 echo Collecting markdown files with exclusions: $cmd
 echo " "
-MD_FILE_LIST=( `eval $cmd` )
+declare -a MD_FILE_LIST=( $(eval $cmd) )
 
 # Pipe the files into the src/site/markdown directory tree
 tar cvf - "${MD_FILE_LIST[@]}" | ( cd "$METRON_SOURCE"/site-book/src/site/markdown; tar xf -  )
@@ -201,7 +212,7 @@ for (( i=0; i<${#HREF_REWRITE_LIST[@]} ; i+=2 )) ; do
 	    ;;
 	*)
 	    echo "ERROR: Unable to determine 'sed' argument list for OS ${OSTYPE}" > /dev/stderr
-	    exit -1
+	    quit 126
 	    ;;
     esac
 done
@@ -211,9 +222,9 @@ echo " "
 # like README is the default doc for a github sub-directory.  This makes some internal links (to directories)
 # work instead of being broken.
 echo Renaming \"README\" files to \"index\" files.
-if (( `ls -R |grep -c 'index.md'` > 0 )) ; then
+if (( $(ls -R |grep -c 'index.md') > 0 )) ; then
     echo "ERROR: index.md file exists in tree already, we currently don't handle that"
-    exit -1
+    quit 1
 fi
 find . -name README.md -execdir mv README.md index.md \;
 echo " "
@@ -225,7 +236,7 @@ echo " "
 
 BEGIN_TAG="BEGIN_MENU_TREE"
 END_TAG="END_MENU_TREE"
-INDENTS=( "" "  " "    " "      " "        " "          " "            " )
+declare -a INDENTS=( "" "  " "    " "      " "        " "          " "            " )
 
 echo "Generating menu tree from directory tree structure"
 echo " "
@@ -269,23 +280,22 @@ echo "Done."
 echo " "
 
 echo "Fixing up markdown dialect problems between Github-MD and doxia-markdown:"
-# Detecting errors from a `find -exec` command is difficult, have to use an intermediary file
+# Detecting errors from a `find -exec` command is difficult, so we use an intermediary file
 errfile="../errout.dat"
-if [ -e $errfile ]; then
-    rm -f $errfile
+if [ -w "$errfile" ]; then
+    find . -name '*.md' -print -exec python "$METRON_SOURCE"/site-book/bin/fix-md-dialect.py '{}' \; 2 > "$errfile"
+    errlines=$(wc -l "$errfile")
+else
+    echo "$errfile" is not writable
+    quit 126
 fi
-touch $errfile
-find . -name '*.md' -print -exec python "$METRON_SOURCE"/site-book/bin/fix-md-dialect.py '{}' \; 2>> $errfile
-errlines=`cat $errfile|wc -l`
 if (( $errlines > 0 )) ; then
     echo "ERROR DETECTED:"
-    cat $errfile
-    rm -f $errfile
-    exit 127
+    cat "$errfile"
+    quit 127
 else
-    rm -f $errfile
     echo "Done."
     echo " "
-    exit 0
+    quit
 fi
 
