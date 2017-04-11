@@ -23,7 +23,6 @@ import org.apache.metron.common.dsl.Context;
 import org.apache.metron.common.dsl.ParseException;
 import org.apache.metron.common.dsl.StellarFunctionInfo;
 import org.apache.metron.common.dsl.StellarFunctions;
-import org.apache.metron.common.dsl.functions.resolver.SingletonFunctionResolver;
 import org.apache.metron.common.field.transformation.FieldTransformations;
 import org.apache.metron.common.stellar.StellarProcessor;
 import org.apache.metron.rest.model.StellarFunctionDescription;

@@ -23,7 +23,7 @@ package org.apache.metron.profiler.bolt;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 import org.adrianwalker.multilinestring.Multiline;
-import org.apache.metron.profiler.stellar.DefaultStellarExecutor;
+import org.apache.metron.profiler.stellar.DefaultStellarStatefulExecutor;
 import org.apache.metron.test.bolt.BaseBoltTest;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -143,7 +143,7 @@ public class ProfileSplitterBoltTest extends BaseBoltTest {
     bolt.setCuratorFramework(client);
     bolt.setTreeCache(cache);
     bolt.getConfigurations().updateProfilerConfig(profilerConfig.getBytes("UTF-8"));
-    bolt.setExecutor(new DefaultStellarExecutor());
+    bolt.setExecutor(new DefaultStellarStatefulExecutor());
 
     bolt.prepare(new HashMap<>(), topologyContext, outputCollector);
     return bolt;

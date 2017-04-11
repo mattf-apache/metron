@@ -18,9 +18,6 @@
 package org.apache.metron.management;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
 import com.jakewharton.fliptables.FlipTable;
 import org.apache.log4j.Logger;
 import org.apache.metron.common.configuration.enrichment.SensorEnrichmentConfig;
@@ -34,7 +31,6 @@ import org.apache.metron.common.dsl.StellarFunction;
 import org.apache.metron.common.utils.ConversionUtils;
 import org.apache.metron.common.utils.JSONUtils;
 
-import java.io.IOException;
 import java.util.*;
 
 import static org.apache.metron.common.configuration.ConfigurationType.ENRICHMENT;

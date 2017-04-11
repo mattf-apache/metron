@@ -22,7 +22,6 @@ import org.adrianwalker.multilinestring.Multiline;
 import org.apache.metron.common.configuration.enrichment.EnrichmentConfig;
 import org.apache.metron.common.configuration.enrichment.SensorEnrichmentConfig;
 import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.ParseException;
 import org.apache.metron.common.dsl.StellarFunctions;
 import org.apache.metron.common.stellar.StellarProcessor;
 import org.apache.metron.common.stellar.shell.StellarExecutor;

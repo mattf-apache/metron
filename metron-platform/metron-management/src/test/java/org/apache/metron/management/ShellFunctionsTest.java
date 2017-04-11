@@ -24,9 +24,7 @@ import org.apache.metron.common.stellar.shell.StellarExecutor;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.apache.metron.common.utils.StellarProcessorUtils.run;

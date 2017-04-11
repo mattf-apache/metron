@@ -25,7 +25,6 @@ import org.apache.metron.common.dsl.BaseStellarFunction;
 import org.apache.metron.common.dsl.Stellar;
 import org.apache.metron.common.utils.ConversionUtils;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

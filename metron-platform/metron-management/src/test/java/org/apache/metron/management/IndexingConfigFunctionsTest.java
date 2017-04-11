@@ -20,7 +20,6 @@ package org.apache.metron.management;
 import com.google.common.collect.ImmutableMap;
 import org.apache.metron.common.configuration.IndexingConfigurations;
 import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.ParseException;
 import org.apache.metron.common.dsl.StellarFunctions;
 import org.apache.metron.common.stellar.StellarProcessor;
 import org.apache.metron.common.stellar.shell.StellarExecutor;

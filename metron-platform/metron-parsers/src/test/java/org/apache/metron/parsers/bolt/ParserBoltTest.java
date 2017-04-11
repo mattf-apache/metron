@@ -22,7 +22,6 @@ import org.apache.metron.common.configuration.*;
 
 import org.apache.metron.common.error.MetronError;
 import org.apache.metron.test.error.MetronErrorJSONMatcher;
-import org.apache.metron.test.utils.UnitTestHelper;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.tuple.Tuple;
 import com.google.common.collect.ImmutableList;
@@ -34,10 +33,8 @@ import org.adrianwalker.multilinestring.Multiline;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.metron.common.configuration.ParserConfigurations;
 import org.apache.metron.common.configuration.SensorParserConfig;
-import org.apache.metron.common.utils.ErrorUtils;
 import org.apache.metron.common.writer.BulkWriterResponse;
 import org.apache.metron.parsers.BasicParser;
-import org.apache.metron.parsers.csv.CSVParser;
 import org.apache.metron.test.bolt.BaseBoltTest;
 import org.apache.metron.parsers.interfaces.MessageFilter;
 import org.apache.metron.parsers.interfaces.MessageParser;
@@ -48,7 +45,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;

@@ -27,7 +27,6 @@ import org.apache.commons.math3.random.MersenneTwister;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.ParseException;
 import org.apache.metron.common.dsl.StellarFunctions;
 import org.apache.metron.common.stellar.StellarProcessor;
 import org.apache.metron.common.utils.SerDeUtils;

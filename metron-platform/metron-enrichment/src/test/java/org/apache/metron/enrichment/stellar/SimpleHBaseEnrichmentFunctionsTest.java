@@ -27,7 +27,6 @@ import org.apache.metron.common.stellar.StellarProcessor;
 import org.apache.metron.enrichment.converter.EnrichmentHelper;
 import org.apache.metron.enrichment.converter.EnrichmentKey;
 import org.apache.metron.enrichment.converter.EnrichmentValue;
-import org.apache.metron.enrichment.lookup.EnrichmentLookup;
 import org.apache.metron.enrichment.lookup.LookupKV;
 import org.apache.metron.hbase.TableProvider;
 import org.apache.metron.test.mock.MockHTable;

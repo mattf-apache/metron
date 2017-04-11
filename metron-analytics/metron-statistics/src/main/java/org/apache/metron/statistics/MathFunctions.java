@@ -19,9 +19,6 @@
  */
 package org.apache.metron.statistics;
 
-import org.apache.metron.common.dsl.*;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 

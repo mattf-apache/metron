@@ -23,7 +23,6 @@ import org.apache.metron.common.dsl.Predicate2StellarFunction;
 import org.apache.metron.common.dsl.Stellar;
 import org.apache.metron.common.field.validation.SimpleValidation;
 
-import java.util.Map;
 import java.util.function.Predicate;
 
 public class EmailValidation extends SimpleValidation {

@@ -17,8 +17,6 @@
  */
 package org.apache.metron.management;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.Iterables;
 import com.jakewharton.fliptables.FlipTable;
 import org.apache.commons.io.IOUtils;
 import org.apache.hadoop.conf.Configuration;
@@ -34,7 +32,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.text.DateFormat;
 import java.util.*;
-import java.util.function.Function;
 
 public class FileSystemFunctions {
   private static final Logger LOG = Logger.getLogger(FileSystemFunctions.class);

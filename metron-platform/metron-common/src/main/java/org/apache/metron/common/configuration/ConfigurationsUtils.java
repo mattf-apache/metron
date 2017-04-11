@@ -18,7 +18,6 @@
 package org.apache.metron.common.configuration;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.curator.CuratorZookeeperClient;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
