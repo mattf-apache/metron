@@ -19,8 +19,8 @@ package org.apache.metron.enrichment.lookup.accesstracker;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.metron.common.utils.ConversionUtils;
 import org.apache.metron.hbase.TableProvider;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 
 import java.io.IOException;
 import java.util.Map;

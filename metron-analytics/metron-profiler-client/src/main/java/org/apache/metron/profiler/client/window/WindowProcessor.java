@@ -21,15 +21,13 @@ package org.apache.metron.profiler.client.window;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.apache.metron.common.dsl.ErrorListener;
-import org.apache.metron.common.dsl.GrammarUtils;
-import org.apache.metron.common.dsl.ParseException;
-import org.apache.metron.common.dsl.Token;
-import org.apache.metron.common.utils.ConversionUtils;
 import org.apache.metron.profiler.client.window.generated.WindowBaseListener;
 import org.apache.metron.profiler.client.window.generated.WindowLexer;
 import org.apache.metron.profiler.client.window.generated.WindowParser;
 import org.apache.metron.profiler.client.window.predicates.DayPredicates;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
+import org.apache.metron.stellar.dsl.*;
+import org.apache.metron.stellar.dsl.Token;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;

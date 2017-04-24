@@ -19,11 +19,11 @@
  */
 package org.apache.metron.statistics.outlier;
 
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.ParseException;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.dsl.StellarFunction;
 import org.apache.metron.statistics.OnlineStatisticsProvider;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.ParseException;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.dsl.StellarFunction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +77,7 @@ public class MedianAbsoluteDeviationFunctions {
           }
           ,returns="The Median Absolute Deviation state."
   )
-  public static class StateUpdate implements StellarFunction{
+  public static class StateUpdate implements StellarFunction {
 
     @Override
     public Object apply(List<Object> args, Context context) throws ParseException {

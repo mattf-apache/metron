@@ -20,10 +20,10 @@
 
 package org.apache.metron.profiler.bolt;
 
+import org.apache.metron.stellar.common.DefaultStellarStatefulExecutor;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 import org.adrianwalker.multilinestring.Multiline;
-import org.apache.metron.profiler.stellar.DefaultStellarStatefulExecutor;
 import org.apache.metron.test.bolt.BaseBoltTest;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -231,7 +231,7 @@ public class ProfileSplitterBoltTest extends BaseBoltTest {
   /**
    * What happens when invalid Stella code is used for 'onlyif'?
    */
-  @Test(expected = org.apache.metron.common.dsl.ParseException.class)
+  @Test(expected = org.apache.metron.stellar.dsl.ParseException.class)
   public void testOnlyIfInvalid() throws Exception {
 
     // setup

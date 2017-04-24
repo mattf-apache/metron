@@ -17,7 +17,7 @@
  */
 package org.apache.metron.storm.kafka.flux;
 
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 import org.apache.storm.kafka.spout.KafkaSpoutConfig;
 
 import java.util.ArrayList;

@@ -17,8 +17,8 @@
  */
 package org.apache.metron.enrichment.lookup.accesstracker;
 
-import org.apache.metron.common.utils.BloomFilter;
 import org.apache.metron.enrichment.lookup.LookupKey;
+import org.apache.metron.stellar.common.utils.BloomFilter;
 
 import java.io.*;
 import java.util.Map;

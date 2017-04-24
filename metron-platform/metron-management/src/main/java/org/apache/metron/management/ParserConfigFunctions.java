@@ -23,8 +23,11 @@ import org.apache.log4j.Logger;
 import org.apache.metron.common.configuration.FieldTransformer;
 import org.apache.metron.common.configuration.SensorParserConfig;
 import org.apache.metron.common.field.transformation.FieldTransformations;
-import org.apache.metron.common.stellar.shell.StellarExecutor;
 import org.apache.metron.common.utils.JSONUtils;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.ParseException;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.dsl.StellarFunction;
 
 import java.util.*;
 

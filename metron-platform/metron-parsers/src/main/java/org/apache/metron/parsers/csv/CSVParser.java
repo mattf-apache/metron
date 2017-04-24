@@ -20,8 +20,8 @@ package org.apache.metron.parsers.csv;
 
 import com.google.common.collect.ImmutableList;
 import org.apache.metron.common.csv.CSVConverter;
-import org.apache.metron.common.utils.ConversionUtils;
 import org.apache.metron.parsers.BasicParser;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

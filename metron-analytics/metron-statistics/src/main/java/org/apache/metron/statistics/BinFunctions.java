@@ -19,10 +19,14 @@
  */
 package org.apache.metron.statistics;
 
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.Stellar;
+
 import java.util.List;
 import java.util.function.Function;
 
-import static org.apache.metron.common.utils.ConversionUtils.convert;
+import static org.apache.metron.stellar.common.utils.ConversionUtils.convert;
+
 
 public class BinFunctions {
 

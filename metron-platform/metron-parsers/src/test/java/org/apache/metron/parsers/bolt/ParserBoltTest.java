@@ -21,13 +21,13 @@ import org.apache.metron.common.Constants;
 import org.apache.metron.common.configuration.*;
 
 import org.apache.metron.common.error.MetronError;
+import org.apache.metron.stellar.dsl.Context;
 import org.apache.metron.test.error.MetronErrorJSONMatcher;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.tuple.Tuple;
 import com.google.common.collect.ImmutableList;
 import org.apache.metron.common.configuration.writer.ParserWriterConfiguration;
 import org.apache.metron.common.configuration.writer.WriterConfiguration;
-import org.apache.metron.common.dsl.Context;
 import org.apache.metron.common.writer.BulkMessageWriter;
 import org.adrianwalker.multilinestring.Multiline;
 import org.apache.hadoop.hbase.util.Bytes;
