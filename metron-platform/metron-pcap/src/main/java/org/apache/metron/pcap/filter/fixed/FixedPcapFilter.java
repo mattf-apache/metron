@@ -21,13 +21,13 @@ package org.apache.metron.pcap.filter.fixed;
 import com.google.common.base.Joiner;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.metron.common.Constants;
-import org.apache.metron.common.dsl.VariableResolver;
 import org.apache.metron.pcap.PacketInfo;
 import org.apache.metron.pcap.PcapHelper;
 import org.apache.metron.pcap.filter.PcapFilter;
 import org.apache.metron.pcap.filter.PcapFilterConfigurator;
 import org.apache.metron.pcap.filter.PcapFilters;
 import org.apache.metron.pcap.filter.PcapFieldResolver;
+import org.apache.metron.stellar.dsl.VariableResolver;
 
 import java.util.EnumMap;
 import java.util.Map;

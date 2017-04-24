@@ -18,6 +18,7 @@
 
 package org.apache.metron.enrichment.writer;
 
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 import org.apache.storm.tuple.Tuple;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
@@ -27,7 +28,6 @@ import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.metron.common.configuration.writer.WriterConfiguration;
 import org.apache.metron.common.writer.BulkMessageWriter;
-import org.apache.metron.common.utils.ConversionUtils;
 import org.apache.metron.common.utils.ReflectionUtils;
 import org.apache.metron.enrichment.converter.EnrichmentConverter;
 import org.apache.metron.enrichment.converter.EnrichmentKey;

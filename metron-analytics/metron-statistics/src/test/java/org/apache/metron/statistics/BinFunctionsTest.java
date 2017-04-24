@@ -21,9 +21,9 @@ package org.apache.metron.statistics;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.StellarFunctions;
-import org.apache.metron.common.stellar.StellarProcessor;
+import org.apache.metron.stellar.common.StellarProcessor;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.StellarFunctions;
 import org.junit.Assert;
 import org.junit.Test;
 

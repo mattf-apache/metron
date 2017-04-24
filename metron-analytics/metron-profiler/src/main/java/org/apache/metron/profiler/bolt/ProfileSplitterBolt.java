@@ -20,8 +20,10 @@
 
 package org.apache.metron.profiler.bolt;
 
-import org.apache.metron.profiler.stellar.DefaultStellarStatefulExecutor;
-import org.apache.metron.profiler.stellar.StellarStatefulExecutor;
+import org.apache.metron.stellar.common.DefaultStellarStatefulExecutor;
+import org.apache.metron.stellar.common.StellarStatefulExecutor;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.StellarFunctions;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -31,8 +33,6 @@ import org.apache.storm.tuple.Values;
 import org.apache.metron.common.bolt.ConfiguredProfilerBolt;
 import org.apache.metron.common.configuration.profiler.ProfileConfig;
 import org.apache.metron.common.configuration.profiler.ProfilerConfig;
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.StellarFunctions;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

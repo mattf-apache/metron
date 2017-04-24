@@ -20,8 +20,8 @@
 
 package org.apache.metron.profiler.client.stellar;
 
-import org.apache.metron.common.utils.ConversionUtils;
 import org.apache.metron.hbase.HTableProvider;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 
 import java.util.Map;
 
@@ -76,7 +76,7 @@ public enum ProfilerConfig {
   }
 
   public <T> T getDefault(Class<T> clazz) {
-    return defaultValue == null?null:ConversionUtils.convert(defaultValue, clazz);
+    return defaultValue == null?null: ConversionUtils.convert(defaultValue, clazz);
   }
 
   public Object get(Map<String, Object> profilerConfig) {

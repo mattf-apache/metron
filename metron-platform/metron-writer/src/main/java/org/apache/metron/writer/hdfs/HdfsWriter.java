@@ -18,12 +18,11 @@
 package org.apache.metron.writer.hdfs;
 
 import org.apache.metron.common.configuration.IndexingConfigurations;
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.MapVariableResolver;
-import org.apache.metron.common.dsl.StellarFunctions;
-import org.apache.metron.common.dsl.VariableResolver;
-import org.apache.metron.common.stellar.StellarCompiler;
-import org.apache.metron.common.stellar.StellarProcessor;
+import org.apache.metron.stellar.common.StellarProcessor;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.MapVariableResolver;
+import org.apache.metron.stellar.dsl.StellarFunctions;
+import org.apache.metron.stellar.dsl.VariableResolver;
 import org.apache.storm.tuple.Tuple;
 import org.apache.metron.common.configuration.writer.WriterConfiguration;
 import org.apache.metron.common.writer.BulkMessageWriter;

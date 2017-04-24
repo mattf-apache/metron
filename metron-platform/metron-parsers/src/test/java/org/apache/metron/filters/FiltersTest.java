@@ -19,9 +19,9 @@
 package org.apache.metron.filters;
 
 import com.google.common.collect.ImmutableMap;
-import org.apache.metron.common.dsl.Context;
 import org.apache.metron.parsers.filters.Filters;
 import org.apache.metron.parsers.interfaces.MessageFilter;
+import org.apache.metron.stellar.dsl.Context;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
