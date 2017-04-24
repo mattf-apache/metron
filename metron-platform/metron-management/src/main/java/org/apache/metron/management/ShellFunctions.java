@@ -23,13 +23,15 @@ import org.apache.commons.lang3.text.WordUtils;
 import org.apache.log4j.Logger;
 import org.apache.metron.stellar.common.shell.PausableInput;
 import org.apache.metron.stellar.common.shell.StellarExecutor;
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
+import org.apache.metron.stellar.dsl.*;
 import org.jboss.aesh.console.Console;
 
 import java.io.*;
 import java.util.*;
 
-import static org.apache.metron.common.stellar.shell.StellarExecutor.CONSOLE;
+import static org.apache.metron.stellar.common.shell.StellarExecutor.CONSOLE;
+
 
 public class ShellFunctions {
   private static final Logger LOG = Logger.getLogger(ShellFunctions.class);

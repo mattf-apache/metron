@@ -18,14 +18,14 @@
 
 package org.apache.metron.management;
 
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.functions.resolver.FunctionResolver;
-import org.apache.metron.common.dsl.functions.resolver.SimpleFunctionResolver;
-import org.apache.metron.common.stellar.StellarProcessor;
 import org.apache.metron.integration.BaseIntegrationTest;
 import org.apache.metron.integration.ComponentRunner;
 import org.apache.metron.integration.components.KafkaComponent;
 import org.apache.metron.integration.components.ZKServerComponent;
+import org.apache.metron.stellar.common.StellarProcessor;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
+import org.apache.metron.stellar.dsl.functions.resolver.SimpleFunctionResolver;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
