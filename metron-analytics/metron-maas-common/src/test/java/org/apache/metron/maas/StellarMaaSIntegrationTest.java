@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.metron.stellar.common.maas;
+package org.apache.metron.maas;
 
 import com.google.common.collect.ImmutableMap;
 import com.sun.jersey.server.impl.application.WebApplicationImpl;
@@ -34,6 +34,7 @@ import org.apache.metron.maas.config.MaaSConfig;
 import org.apache.metron.maas.config.ModelEndpoint;
 import org.apache.metron.maas.discovery.ServiceDiscoverer;
 import org.apache.metron.maas.util.ConfigUtil;
+import org.apache.metron.stellar.common.utils.StellarProcessorUtils;
 import org.apache.metron.test.utils.UnitTestHelper;
 import org.junit.*;
 
@@ -41,8 +42,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
-
-import static org.apache.metron.stellar.common.utils.StellarProcessorUtils.run;
 
 public class StellarMaaSIntegrationTest {
   private static Context context;
@@ -107,7 +106,7 @@ public class StellarMaaSIntegrationTest {
   @Test
   public void testGetEndpointWithoutVersion() throws Exception {
     String stellar = "MAAS_GET_ENDPOINT('dga')";
-    Object result = run(stellar, new HashMap<>(), context);
+    Object result = StellarProcessorUtils.run(stellar, new HashMap<>(), context);
     Assert.assertTrue(result instanceof Map);
     Map<String, String> resMap = (Map<String, String>)result;
     Assert.assertEquals(resMap.get("url"), "http://localhost:8282");
@@ -120,7 +119,7 @@ public class StellarMaaSIntegrationTest {
   @Test
   public void testGetEndpointWithVersion() throws Exception {
     String stellar = "MAAS_GET_ENDPOINT('dga', '1.0')";
-    Object result = run(stellar, new HashMap<>(), context);
+    Object result = StellarProcessorUtils.run(stellar, new HashMap<>(), context);
     Assert.assertTrue(result instanceof Map);
     Map<String, String> resMap = (Map<String, String>)result;
     Assert.assertEquals(resMap.get("url"), "http://localhost:8282");
@@ -132,7 +131,7 @@ public class StellarMaaSIntegrationTest {
   @Test
   public void testGetEndpointWithWrongVersion() throws Exception {
     String stellar = "MAAS_GET_ENDPOINT('dga', '2.0')";
-    Object result = run(stellar, new HashMap<>(), context);
+    Object result = StellarProcessorUtils.run(stellar, new HashMap<>(), context);
     Assert.assertNull(result);
   }
 
@@ -140,17 +139,17 @@ public class StellarMaaSIntegrationTest {
   public void testModelApply() throws Exception {
     {
       String stellar = "MAP_GET('is_malicious', MAAS_MODEL_APPLY(MAAS_GET_ENDPOINT('dga'), {'host': host}))";
-      Object result = run(stellar, ImmutableMap.of("host", "badguy.com"), context);
+      Object result = StellarProcessorUtils.run(stellar, ImmutableMap.of("host", "badguy.com"), context);
       Assert.assertTrue((Boolean) result);
     }
     {
       String stellar = "MAP_GET('is_malicious', MAAS_MODEL_APPLY(MAAS_GET_ENDPOINT('dga'), {'host': host}))";
-      Object result = run(stellar, ImmutableMap.of("host", "youtube.com"), context);
+      Object result = StellarProcessorUtils.run(stellar, ImmutableMap.of("host", "youtube.com"), context);
       Assert.assertFalse((Boolean) result);
     }
     {
       String stellar = "MAP_GET('is_malicious', MAAS_MODEL_APPLY(MAAS_GET_ENDPOINT('dga'), 'apply', {'host': host}))";
-      Object result = run(stellar, ImmutableMap.of("host", "youtube.com"), context);
+      Object result = StellarProcessorUtils.run(stellar, ImmutableMap.of("host", "youtube.com"), context);
       Assert.assertFalse((Boolean) result);
     }
 
@@ -160,7 +159,7 @@ public class StellarMaaSIntegrationTest {
   public void testModelApplyNegative() {
     {
       String stellar = "MAP_GET('is_malicious', MAAS_MODEL_APPLY(MAAS_GET_ENDPOINT('dga', '2.0'), {'host': host}))";
-      Object result = run(stellar, ImmutableMap.of("host", "youtube.com"), context);
+      Object result = StellarProcessorUtils.run(stellar, ImmutableMap.of("host", "youtube.com"), context);
       Assert.assertNull( result);
     }
   }

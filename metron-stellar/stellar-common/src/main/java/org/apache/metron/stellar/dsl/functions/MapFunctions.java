@@ -18,8 +18,8 @@
 
 package org.apache.metron.stellar.dsl.functions;
 
-import org.apache.metron.common.dsl.BaseStellarFunction;
-import org.apache.metron.common.dsl.Stellar;
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.Stellar;
 
 import java.util.List;
 import java.util.Map;

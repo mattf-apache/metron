@@ -22,10 +22,10 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import org.apache.commons.lang.StringUtils;
-import org.apache.metron.common.dsl.BaseStellarFunction;
-import org.apache.metron.common.dsl.ParseException;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.ParseException;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

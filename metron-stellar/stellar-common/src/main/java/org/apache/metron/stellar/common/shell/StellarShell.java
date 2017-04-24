@@ -32,7 +32,7 @@ import org.apache.commons.cli.PosixParser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.metron.stellar.dsl.Context;
 import org.apache.metron.stellar.dsl.StellarFunctionInfo;
-import org.apache.metron.common.utils.JSONUtils;
+import org.apache.metron.stellar.common.utils.JSONUtils;
 import org.jboss.aesh.complete.CompleteOperation;
 import org.jboss.aesh.complete.Completion;
 import org.jboss.aesh.console.AeshConsoleCallback;

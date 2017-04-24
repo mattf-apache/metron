@@ -688,7 +688,7 @@ The utility can be executed via maven using the `exec` plugin, like so, from the
 
 ```
 mvn -DskipTests clean package && \
-mvn exec:java -Dexec.mainClass="org.apache.metron.stellar.common.benchmark.StellarMicrobenchmark" -Dexec.args="..."
+mvn exec:java -Dexec.mainClass="org.apache.metron.common.stellar.benchmark.StellarMicrobenchmark" -Dexec.args="..."
  ```
 where `exec.args` can be one of the following:
 ```
@@ -734,7 +734,7 @@ And variables in file `/tmp/variables.json`:
 Written to file `/tmp/output.txt` would be the following command:
 ```
 mvn -DskipTests clean package && \
-mvn exec:java -Dexec.mainClass="org.apache.metron.stellar.common.benchmark.StellarMicrobenchmark" \
+mvn exec:java -Dexec.mainClass="org.apache.metron.common.stellar.benchmark.StellarMicrobenchmark" \
 -Dexec.args="-e /tmp/expressions.txt -v /tmp/variables.json -o ./output.json"
  ```
 ## Stellar Shell

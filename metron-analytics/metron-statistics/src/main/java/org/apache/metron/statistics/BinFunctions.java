@@ -24,39 +24,7 @@ import java.util.function.Function;
 
 import static org.apache.metron.common.utils.ConversionUtils.convert;
 
-public class MathFunctions {
-
-  @Stellar(name="ABS"
-          ,description="Returns the absolute value of a number."
-          ,params = {
-                "number - The number to take the absolute value of"
-                    }
-          , returns="The absolute value of the number passed in."
-          )
-  public static class Abs implements StellarFunction{
-
-    @Override
-    public Object apply(List<Object> args, Context context) throws ParseException {
-      if(args.size() < 1) {
-        return Double.NaN;
-      }
-      Number n = (Number)args.get(0);
-      if(n == null) {
-        return Double.NaN;
-      }
-      return Math.abs(n.doubleValue());
-    }
-
-    @Override
-    public void initialize(Context context) {
-
-    }
-
-    @Override
-    public boolean isInitialized() {
-      return true;
-    }
-  }
+public class BinFunctions {
 
   /**
    * Calculates the statistical bin that a value falls in.

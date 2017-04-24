@@ -18,9 +18,9 @@
 
 package org.apache.metron.stellar.dsl.functions;
 
-import org.apache.metron.common.dsl.BaseStellarFunction;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.stellar.LambdaExpression;
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.common.LambdaExpression;
 
 import java.util.ArrayList;
 import java.util.List;

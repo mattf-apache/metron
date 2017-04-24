@@ -29,20 +29,12 @@ import org.junit.Test;
 
 import java.util.Map;
 
-public class MathFunctionsTest {
+public class BinFunctionsTest {
   public static Object run(String rule, Map<String, Object> variables) {
     Context context = Context.EMPTY_CONTEXT();
     StellarProcessor processor = new StellarProcessor();
     Assert.assertTrue(rule + " not valid.", processor.validate(rule, context));
     return processor.parse(rule, x -> variables.get(x), StellarFunctions.FUNCTION_RESOLVER(), context);
-  }
-
-  @Test
-  public void testAbs() {
-    Assert.assertEquals((Double)run("ABS(value)", ImmutableMap.of("value", 0)), 0, 1e-7);
-    Assert.assertTrue(Double.isNaN((Double)run("ABS(value)", ImmutableMap.of("value", Double.NaN))));
-    Assert.assertEquals((Double)run("ABS(value)", ImmutableMap.of("value", 10.5)), 10.5, 1e-7);
-    Assert.assertEquals((Double)run("ABS(value)", ImmutableMap.of("value", -10.5)), 10.5, 1e-7);
   }
 
   @Test

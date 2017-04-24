@@ -17,11 +17,11 @@
  */
 package org.apache.metron.stellar.dsl.functions;
 
-import org.apache.metron.common.dsl.BaseStellarFunction;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.utils.BloomFilter;
-import org.apache.metron.common.utils.ConversionUtils;
-import org.apache.metron.common.utils.SerDeUtils;
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.common.utils.BloomFilter;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
+import org.apache.metron.stellar.common.utils.SerDeUtils;
 
 import java.util.Collection;
 import java.util.List;

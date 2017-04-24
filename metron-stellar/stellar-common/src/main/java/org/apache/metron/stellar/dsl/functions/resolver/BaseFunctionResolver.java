@@ -22,10 +22,10 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 import org.apache.commons.lang.ObjectUtils;
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.dsl.StellarFunction;
-import org.apache.metron.common.dsl.StellarFunctionInfo;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.dsl.StellarFunction;
+import org.apache.metron.stellar.dsl.StellarFunctionInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

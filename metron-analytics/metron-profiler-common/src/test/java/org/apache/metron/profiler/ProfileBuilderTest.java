@@ -23,7 +23,6 @@ package org.apache.metron.profiler;
 import org.adrianwalker.multilinestring.Multiline;
 import org.apache.metron.common.configuration.profiler.ProfileConfig;
 import org.apache.metron.common.utils.JSONUtils;
-import org.apache.metron.profiler.clock.Clock;
 import org.apache.metron.profiler.clock.FixedClock;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

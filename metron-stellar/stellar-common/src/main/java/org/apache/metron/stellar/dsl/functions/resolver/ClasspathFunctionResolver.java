@@ -21,17 +21,17 @@ package org.apache.metron.stellar.dsl.functions.resolver;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.impl.VFSClassLoader;
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.dsl.StellarFunction;
-import org.apache.metron.common.utils.VFSClassloaderUtil;
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.dsl.StellarFunction;
+import org.apache.metron.stellar.common.utils.VFSClassloaderUtil;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 import org.atteo.classindex.ClassIndex;
 import org.reflections.util.FilterBuilder;
 
 import java.util.*;
 
-import static org.apache.metron.common.dsl.Context.Capabilities.STELLAR_CONFIG;
+import static org.apache.metron.stellar.dsl.Context.Capabilities.STELLAR_CONFIG;
 import static org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver.Config.STELLAR_SEARCH_EXCLUDES_KEY;
 import static org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver.Config.STELLAR_SEARCH_INCLUDES_KEY;
 import static org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver.Config.STELLAR_VFS_PATHS;

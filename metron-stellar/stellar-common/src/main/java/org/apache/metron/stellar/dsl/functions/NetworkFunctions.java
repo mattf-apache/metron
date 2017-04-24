@@ -23,8 +23,8 @@ import com.google.common.collect.Iterables;
 import com.google.common.net.InternetDomainName;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.net.util.SubnetUtils;
-import org.apache.metron.common.dsl.BaseStellarFunction;
-import org.apache.metron.common.dsl.Stellar;
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.Stellar;
 
 import java.net.MalformedURLException;
 import java.net.URL;

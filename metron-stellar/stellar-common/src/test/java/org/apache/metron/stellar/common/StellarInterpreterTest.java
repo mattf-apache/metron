@@ -18,30 +18,26 @@
 
 package org.apache.metron.stellar.common;
 
-import org.apache.metron.stellar.dsl.Context;
-import org.apache.metron.stellar.dsl.Token;
-import org.apache.metron.stellar.dsl.VariableResolver;
-import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
 import org.apache.metron.stellar.common.evaluators.ArithmeticEvaluator;
 import org.apache.metron.stellar.common.evaluators.ComparisonExpressionWithOperatorEvaluator;
 import org.apache.metron.stellar.common.evaluators.NumberLiteralEvaluator;
 import org.apache.metron.stellar.common.generated.StellarParser;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.Token;
+import org.apache.metron.stellar.dsl.VariableResolver;
+import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.verification.VerificationMode;
+import org.mockito.Matchers;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.powermock.api.mockito.PowerMockito.*;
 
 
 @RunWith(PowerMockRunner.class)

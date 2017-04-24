@@ -28,7 +28,6 @@ import org.apache.metron.profiler.ProfileBuilder;
 import org.apache.metron.profiler.ProfileMeasurement;
 import org.apache.metron.test.bolt.BaseBoltTest;
 import org.apache.storm.Constants;
-import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 import org.json.simple.JSONObject;

@@ -17,9 +17,9 @@
  */
 package org.apache.metron.stellar.dsl.functions.resolver;
 
-import org.apache.metron.common.dsl.Context;
-import org.apache.metron.common.dsl.StellarFunction;
-import org.apache.metron.common.dsl.StellarFunctionInfo;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.StellarFunction;
+import org.apache.metron.stellar.dsl.StellarFunctionInfo;
 
 import java.util.function.Function;
 

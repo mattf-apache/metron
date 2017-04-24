@@ -16,16 +16,15 @@
  * limitations under the License.
  */
 
-package org.apache.metron.stellar.dsl.functions.resolver;
+package org.apache.metron.integration;
 
 import com.google.common.collect.Lists;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hdfs.MiniDFSCluster;
-import org.apache.hadoop.yarn.conf.YarnConfiguration;
-import org.apache.metron.stellar.dsl.Context;
 import org.apache.metron.integration.components.MRComponent;
+import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -37,7 +36,7 @@ import java.util.Properties;
 
 import static org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver.Config.STELLAR_VFS_PATHS;
 
-public class ClasspathFunctionResolverIntegrationTest {
+public class StellarClasspathFunctionResolver {
   static MRComponent component;
   static Configuration configuration;
   @BeforeClass

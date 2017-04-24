@@ -15,13 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.metron.stellar.common.maas;
+package org.apache.metron.maas;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.collect.ImmutableMap;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import org.apache.metron.common.utils.JSONUtils;
+import org.apache.metron.stellar.common.utils.JSONUtils;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;

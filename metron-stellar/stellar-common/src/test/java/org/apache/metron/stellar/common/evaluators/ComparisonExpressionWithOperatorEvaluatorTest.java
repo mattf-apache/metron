@@ -19,20 +19,19 @@
 package org.apache.metron.stellar.common.evaluators;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.apache.metron.stellar.common.generated.StellarParser;
 import org.apache.metron.stellar.dsl.ParseException;
 import org.apache.metron.stellar.dsl.Token;
-import org.apache.metron.stellar.common.generated.StellarParser;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.powermock.api.mockito.PowerMockito.mock;
-import static org.powermock.api.mockito.PowerMockito.when;
 
 @SuppressWarnings({"unchecked"})
 @RunWith(PowerMockRunner.class)

@@ -15,13 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.metron.stellar.common.benchmark;
+package org.apache.metron.common.stellar.benchmark;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.metron.stellar.common.StellarProcessor;
 import org.apache.metron.stellar.dsl.Context;
 import org.apache.metron.stellar.dsl.VariableResolver;
 import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
-import org.apache.metron.common.stellar.StellarProcessor;
 
 import java.util.function.Consumer;
 

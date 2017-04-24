@@ -21,9 +21,9 @@ package org.apache.metron.stellar.dsl.functions;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import org.apache.metron.common.dsl.BaseStellarFunction;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

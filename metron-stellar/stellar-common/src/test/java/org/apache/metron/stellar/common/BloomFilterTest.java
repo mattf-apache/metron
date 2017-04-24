@@ -20,7 +20,7 @@
 package org.apache.metron.stellar.common;
 
 import com.google.common.collect.ImmutableMap;
-import org.apache.metron.common.utils.BloomFilter;
+import org.apache.metron.stellar.common.utils.BloomFilter;
 import org.junit.Assert;
 import org.junit.Test;
 

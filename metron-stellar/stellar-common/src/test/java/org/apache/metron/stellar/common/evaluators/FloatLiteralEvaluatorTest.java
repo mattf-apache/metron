@@ -18,18 +18,15 @@
 
 package org.apache.metron.stellar.common.evaluators;
 
-import org.apache.metron.stellar.dsl.Token;
 import org.apache.metron.stellar.common.generated.StellarParser;
+import org.apache.metron.stellar.dsl.Token;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
 
 public class FloatLiteralEvaluatorTest {
   @Rule

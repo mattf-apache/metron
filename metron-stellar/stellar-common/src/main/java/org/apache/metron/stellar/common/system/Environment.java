@@ -15,20 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.apache.metron.stellar.common.system;
 
-package org.apache.metron.common.utils;
-
-import org.junit.Assert;
-import org.junit.Test;
-
-public class ConversionUtilsTest {
-
-  @Test
-  public void testIntegerConversions() {
-    Object o = 1;
-    Assert.assertEquals(Integer.valueOf(1), ConversionUtils.convert(o, Integer.class));
-    Assert.assertEquals(Integer.valueOf(1), ConversionUtils.convert("1", Integer.class));
-    Assert.assertNull(ConversionUtils.convert("foo", Integer.class));
+/**
+ * Useful so we can test mock dependency injection with environment variables
+ */
+public class Environment {
+  public String get(String variable) {
+    return System.getenv().get(variable);
   }
-
 }

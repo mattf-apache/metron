@@ -19,15 +19,14 @@
 package org.apache.metron.stellar.common.evaluators;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.apache.metron.stellar.dsl.Token;
 import org.apache.metron.stellar.common.generated.StellarParser;
+import org.apache.metron.stellar.dsl.Token;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @SuppressWarnings({"unchecked"})
 public class EqualityOperatorsEvaluatorTest {

@@ -17,10 +17,6 @@
  */
 package org.apache.metron.common.bolt;
 
-import org.apache.metron.common.configuration.ConfigurationsUtils;
-import org.apache.storm.task.OutputCollector;
-import org.apache.storm.task.TopologyContext;
-import org.apache.storm.topology.base.BaseRichBolt;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -32,7 +28,10 @@ import org.apache.log4j.Logger;
 import org.apache.metron.common.Constants;
 import org.apache.metron.common.configuration.ConfigurationType;
 import org.apache.metron.common.configuration.Configurations;
-import org.apache.metron.common.dsl.Context;
+import org.apache.metron.common.configuration.ConfigurationsUtils;
+import org.apache.storm.task.OutputCollector;
+import org.apache.storm.task.TopologyContext;
+import org.apache.storm.topology.base.BaseRichBolt;
 
 import java.io.IOException;
 import java.util.Map;

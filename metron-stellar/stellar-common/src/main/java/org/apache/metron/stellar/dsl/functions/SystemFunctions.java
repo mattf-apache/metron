@@ -17,9 +17,9 @@
  */
 package org.apache.metron.stellar.dsl.functions;
 
-import org.apache.metron.common.dsl.BaseStellarFunction;
-import org.apache.metron.common.dsl.Stellar;
-import org.apache.metron.common.system.Environment;
+import org.apache.metron.stellar.dsl.BaseStellarFunction;
+import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.common.system.Environment;
 
 import java.util.List;
 import java.util.function.Function;

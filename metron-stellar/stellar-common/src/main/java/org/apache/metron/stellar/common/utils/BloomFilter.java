@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.metron.common.utils;
+package org.apache.metron.stellar.common.utils;
 
 import com.google.common.hash.Funnel;
 import com.google.common.hash.PrimitiveSink;

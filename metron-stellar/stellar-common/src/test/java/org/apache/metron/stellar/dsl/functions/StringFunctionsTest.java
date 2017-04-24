@@ -20,7 +20,7 @@ package org.apache.metron.stellar.dsl.functions;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.collections4.map.HashedMap;
 import org.apache.metron.stellar.dsl.ParseException;
 import org.junit.Assert;
 import org.junit.Test;

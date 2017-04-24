@@ -22,7 +22,7 @@ package org.apache.metron.stellar.common;
 
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.lang.ClassUtils;
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 import org.apache.metron.stellar.dsl.Context;
 import org.apache.metron.stellar.dsl.MapVariableResolver;
 import org.apache.metron.stellar.dsl.StellarFunctions;

@@ -18,7 +18,7 @@
 
 package org.apache.metron.stellar.dsl.functions.resolver;
 
-import org.apache.metron.common.dsl.StellarFunction;
+import org.apache.metron.stellar.dsl.StellarFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

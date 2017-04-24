@@ -18,14 +18,13 @@
 
 package org.apache.metron.stellar.common.utils;
 
+import com.google.common.collect.ImmutableList;
+import org.apache.metron.stellar.common.StellarPredicateProcessor;
+import org.apache.metron.stellar.common.StellarProcessor;
 import org.apache.metron.stellar.dsl.Context;
 import org.apache.metron.stellar.dsl.MapVariableResolver;
 import org.apache.metron.stellar.dsl.StellarFunctions;
 import org.apache.metron.stellar.dsl.VariableResolver;
-import com.google.common.collect.ImmutableList;
-import org.apache.metron.stellar.common.StellarPredicateProcessor;
-import org.apache.metron.stellar.common.StellarProcessor;
-import org.apache.metron.common.utils.SerDeUtils;
 import org.junit.Assert;
 
 import java.util.AbstractMap;

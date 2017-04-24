@@ -31,7 +31,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.metron.stellar.dsl.FunctionMarker;
 import org.apache.metron.stellar.dsl.ParseException;
 import org.apache.metron.stellar.dsl.StellarFunction;
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 
 import java.io.Serializable;
 import java.util.*;

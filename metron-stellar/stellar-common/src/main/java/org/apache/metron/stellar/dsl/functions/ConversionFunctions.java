@@ -19,7 +19,7 @@ package org.apache.metron.stellar.dsl.functions;
 
 import org.apache.metron.stellar.dsl.BaseStellarFunction;
 import org.apache.metron.stellar.dsl.Stellar;
-import org.apache.metron.common.utils.ConversionUtils;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 
 import java.util.List;
 

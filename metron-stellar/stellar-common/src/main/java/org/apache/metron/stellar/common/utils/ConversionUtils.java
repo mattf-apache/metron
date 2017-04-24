@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.metron.common.utils;
+package org.apache.metron.stellar.common.utils;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.beanutils.BeanUtilsBean2;

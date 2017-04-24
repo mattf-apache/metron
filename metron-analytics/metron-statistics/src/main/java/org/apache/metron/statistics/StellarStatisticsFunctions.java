@@ -476,7 +476,7 @@ public class StellarStatisticsFunctions {
       if (stats == null || value == null || bins.size() == 0) {
         return -1;
       }
-      return MathFunctions.Bin.getBin(value, bins.size(), bin -> stats.getPercentile(bins.get(bin).doubleValue()));
+      return BinFunctions.Bin.getBin(value, bins.size(), bin -> stats.getPercentile(bins.get(bin).doubleValue()));
     }
   }
 
