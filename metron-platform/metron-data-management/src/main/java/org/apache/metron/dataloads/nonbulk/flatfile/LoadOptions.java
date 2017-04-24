@@ -21,9 +21,9 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import org.apache.commons.cli.*;
 import org.apache.commons.io.FileUtils;
-import org.apache.metron.common.utils.ConversionUtils;
 import org.apache.metron.common.utils.cli.OptionHandler;
 import org.apache.metron.dataloads.nonbulk.flatfile.importer.ImportStrategy;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
 
 import javax.annotation.Nullable;
 import java.io.File;
