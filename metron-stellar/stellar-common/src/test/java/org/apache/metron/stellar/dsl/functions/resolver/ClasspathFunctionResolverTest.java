@@ -23,6 +23,7 @@ import org.apache.commons.vfs2.*;
 import org.apache.metron.stellar.dsl.Context;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -108,6 +109,7 @@ public class ClasspathFunctionResolverTest {
     Assert.assertEquals(0, actual.size());
   }
 
+  @Ignore
   @Test
   public void testExternalLocal() throws FileSystemException, ClassNotFoundException {
     File jar = new File("src/test/classpath-resources");
@@ -120,7 +122,7 @@ public class ClasspathFunctionResolverTest {
     Assert.assertTrue(functions.contains("NOW"));
   }
 
-
+  @Ignore
   @Test
   public void testExternalHDFS() throws FileSystemException, ClassNotFoundException {
     File jar = new File("src/test/classpath-resources");

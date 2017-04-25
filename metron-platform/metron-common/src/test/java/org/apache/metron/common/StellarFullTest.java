@@ -16,32 +16,27 @@
  * limitations under the License.
  */
 
-package org.apache.metron.stellar.common;
+package org.apache.metron.common;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.metron.stellar.common.StellarProcessor;
 import org.apache.metron.stellar.dsl.ParseException;
 import org.apache.metron.stellar.dsl.Stellar;
 import org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 import static org.apache.metron.stellar.common.utils.StellarProcessorUtils.run;
 import static org.apache.metron.stellar.common.utils.StellarProcessorUtils.runPredicate;
 
 @SuppressWarnings("ALL")
-public class StellarTest {
+public class StellarFullTest {
 
   @Test
   public void ensureDocumentation() {
@@ -419,7 +414,6 @@ public class StellarTest {
     Assert.assertEquals("/my/path", run(query, ImmutableMap.of("foo", "http://www.google.co.uk/my/path")));
   }
 
-  @Ignore
   @Test
   public void testProtocolToName() {
     String query = "PROTOCOL_TO_NAME(protocol)";

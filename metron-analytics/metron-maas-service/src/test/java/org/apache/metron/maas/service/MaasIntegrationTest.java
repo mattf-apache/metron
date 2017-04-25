@@ -16,6 +16,37 @@
  * limitations under the License.
  */
 package org.apache.metron.maas.service;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.curator.RetryPolicy;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.net.NetUtils;
+import org.apache.hadoop.util.Shell;
+import org.apache.hadoop.yarn.api.records.ApplicationReport;
+import org.apache.hadoop.yarn.api.records.YarnApplicationState;
+import org.apache.hadoop.yarn.client.api.YarnClient;
+import org.apache.hadoop.yarn.conf.YarnConfiguration;
+import org.apache.metron.integration.ComponentRunner;
+import org.apache.metron.integration.components.YarnComponent;
+import org.apache.metron.integration.components.ZKServerComponent;
+import org.apache.metron.maas.config.MaaSConfig;
+import org.apache.metron.maas.config.Model;
+import org.apache.metron.maas.config.ModelEndpoint;
+import org.apache.metron.maas.discovery.ServiceDiscoverer;
+import org.apache.metron.maas.queue.ZKQueue;
+import org.apache.metron.maas.submit.ModelSubmission;
+import org.apache.metron.maas.util.ConfigUtil;
+import org.apache.metron.test.utils.UnitTestHelper;
+import org.apache.zookeeper.KeeperException;
+import org.junit.*;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
@@ -23,43 +54,6 @@ import java.net.URL;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
-
-import com.google.common.base.Splitter;
-import com.google.common.collect.Iterables;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.curator.RetryPolicy;
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.apache.curator.test.TestingServer;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.net.NetUtils;
-import org.apache.hadoop.util.JarFinder;
-import org.apache.hadoop.util.Shell;
-import org.apache.hadoop.yarn.api.records.ApplicationReport;
-import org.apache.hadoop.yarn.api.records.YarnApplicationState;
-import org.apache.hadoop.yarn.client.api.YarnClient;
-import org.apache.hadoop.yarn.conf.YarnConfiguration;
-import org.apache.hadoop.yarn.server.MiniYARNCluster;
-import org.apache.metron.integration.ComponentRunner;
-import org.apache.metron.integration.components.YarnComponent;
-import org.apache.metron.integration.components.ZKServerComponent;
-import org.apache.metron.maas.discovery.ServiceDiscoverer;
-import org.apache.metron.maas.config.MaaSConfig;
-import org.apache.metron.maas.config.Model;
-import org.apache.metron.maas.config.ModelEndpoint;
-import org.apache.metron.maas.queue.ZKQueue;
-import org.apache.metron.maas.submit.ModelSubmission;
-import org.apache.metron.maas.util.ConfigUtil;
-import org.apache.metron.test.utils.UnitTestHelper;
-import org.apache.zookeeper.KeeperException;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
 public class MaasIntegrationTest {
   private static final Log LOG =
@@ -100,12 +94,14 @@ public class MaasIntegrationTest {
     runner.stop();
   }
 
-  @Test(timeout=900000)
+  @Ignore
+  @Test(timeout=300000)
   public void testMaaSWithDomain() throws Exception {
     testDSShell(true);
   }
 
-  @Test(timeout=900000)
+  @Ignore
+  @Test(timeout=300000)
   public void testMaaSWithoutDomain() throws Exception {
     testDSShell(false);
   }
