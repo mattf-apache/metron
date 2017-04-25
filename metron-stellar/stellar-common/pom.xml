@@ -251,13 +251,20 @@
                             <relocations>
                                 <relocation>
                                     <pattern>com.google.common</pattern>
-                                    <shadedPattern>org.apache.metron.guava</shadedPattern>
+                                    <shadedPattern>org.apache.metron.stellar.guava</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>org.apache.commons.beanutils</pattern>
-                                    <shadedPattern>org.apache.metron.beanutils</shadedPattern>
+                                    <shadedPattern>org.apache.metron.stellar.beanutils</shadedPattern>
                                 </relocation>
-
+                                <relocation>
+                                    <pattern>com.esotericsoftware</pattern>
+                                    <shadedPattern>org.apache.metron.stellar.kryo</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>de.javakaffee.kryoserializers</pattern>
+                                    <shadedPattern>org.apache.metron.stellar.kryoserializers</shadedPattern>
+                                </relocation>
                             </relocations>
                             <transformers>
                                 <transformer

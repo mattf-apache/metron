@@ -103,6 +103,10 @@
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
+                    <artifactId>kryo</artifactId>
+                    <groupId>com.esotericsoftware</groupId>
+                </exclusion>
+                <exclusion>
                     <artifactId>servlet-api</artifactId>
                     <groupId>javax.servlet</groupId>
                 </exclusion>
@@ -450,7 +454,14 @@
                                     <pattern>org.apache.commons.beanutils</pattern>
                                     <shadedPattern>org.apache.metron.beanutils</shadedPattern>
                                 </relocation>
-
+                                <relocation>
+                                    <pattern>com.esotericsoftware</pattern>
+                                    <shadedPattern>org.apache.metron.kryo</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>de.javakaffee.kryoserializers</pattern>
+                                    <shadedPattern>org.apache.metron.kryoserializers</shadedPattern>
+                                </relocation>
                             </relocations>
                             <transformers>
                                 <transformer
