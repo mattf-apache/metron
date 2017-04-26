@@ -240,6 +240,18 @@
                                     <pattern>com.google.common</pattern>
                                     <shadedPattern>org.apache.metron.guava</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.apache.commons.beanutils</pattern>
+                                    <shadedPattern>org.apache.metron.beanutils</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.esotericsoftware</pattern>
+                                    <shadedPattern>org.apache.metron.kryo</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>de.javakaffee.kryoserializers</pattern>
+                                    <shadedPattern>org.apache.metron.kryoserializers</shadedPattern>
+                                </relocation>
                             </relocations>
                             <transformers>
                                 <transformer

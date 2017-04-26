@@ -462,6 +462,10 @@
                                     <pattern>de.javakaffee.kryoserializers</pattern>
                                     <shadedPattern>org.apache.metron.kryoserializers</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.apache.commons.validator</pattern>
+                                    <shadedPattern>org.apache.metron.commons.validator</shadedPattern>
+                                </relocation>
                             </relocations>
                             <transformers>
                                 <transformer

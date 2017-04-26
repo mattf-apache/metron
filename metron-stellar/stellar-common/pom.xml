@@ -265,6 +265,10 @@
                                     <pattern>de.javakaffee.kryoserializers</pattern>
                                     <shadedPattern>org.apache.metron.stellar.kryoserializers</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.objectweb.asm</pattern>
+                                    <shadedPattern>org.apache.metron.stellar.asm</shadedPattern>
+                                </relocation>
                             </relocations>
                             <transformers>
                                 <transformer
