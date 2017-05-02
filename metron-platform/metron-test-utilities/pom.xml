@@ -185,20 +185,25 @@
                         <configuration>
                             <relocations>
                                 <relocation>
+                                    <pattern>nl.jqno.equalsverifier</pattern>
+                                    <shadedPattern>org.apache.metron.test.equalsverifier</shadedPattern>
+                                </relocation>
+
+                                <relocation>
                                     <pattern>com.google.common</pattern>
-                                    <shadedPattern>org.apache.metron.guava</shadedPattern>
+                                    <shadedPattern>org.apache.metron.test.guava</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>org.apache.commons.beanutils</pattern>
-                                    <shadedPattern>org.apache.metron.beanutils</shadedPattern>
+                                    <shadedPattern>org.apache.metron.test.beanutils</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>com.esotericsoftware</pattern>
-                                    <shadedPattern>org.apache.metron.kryo</shadedPattern>
+                                    <shadedPattern>org.apache.metron.test.kryo</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>de.javakaffee.kryoserializers</pattern>
-                                    <shadedPattern>org.apache.metron.kryoserializers</shadedPattern>
+                                    <shadedPattern>org.apache.metron.test.kryoserializers</shadedPattern>
                                 </relocation>
                             </relocations>
                             <transformers>
