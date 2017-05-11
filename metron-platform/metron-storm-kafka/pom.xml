@@ -88,6 +88,11 @@
             <artifactId>metron-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${global_guava_version}</version>
+        </dependency>
     </dependencies>
 
     <reporting>

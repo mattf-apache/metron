@@ -39,13 +39,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.metron</groupId>
-            <artifactId>stellar-common</artifactId>
-            <version>${project.parent.version}</version>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.metron</groupId>
             <artifactId>metron-parsers</artifactId>
             <version>${project.parent.version}</version>
             <exclusions>
@@ -55,6 +48,13 @@
                 </exclusion>
             </exclusions>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.metron</groupId>
+            <artifactId>stellar-common</artifactId>
+            <version>${project.parent.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.jakewharton.fliptables</groupId>
@@ -239,18 +239,6 @@
                                 <relocation>
                                     <pattern>com.google.common</pattern>
                                     <shadedPattern>org.apache.metron.guava</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.apache.commons.beanutils</pattern>
-                                    <shadedPattern>org.apache.metron.beanutils</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.esotericsoftware</pattern>
-                                    <shadedPattern>org.apache.metron.kryo</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>de.javakaffee.kryoserializers</pattern>
-                                    <shadedPattern>org.apache.metron.kryoserializers</shadedPattern>
                                 </relocation>
                             </relocations>
                             <transformers>

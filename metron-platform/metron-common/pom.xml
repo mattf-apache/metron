@@ -42,23 +42,6 @@
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
-            <version>3.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.metron</groupId>
-            <artifactId>metron-integration-test</artifactId>
-            <version>${project.parent.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.metron</groupId>
-            <artifactId>metron-test-utilities</artifactId>
-            <version>${project.parent.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.apache.metron</groupId>
             <artifactId>stellar-common</artifactId>
             <version>${project.parent.version}</version>
@@ -68,6 +51,17 @@
             <artifactId>stellar-common</artifactId>
             <version>${project.parent.version}</version>
             <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.metron</groupId>
+            <artifactId>metron-integration-test</artifactId>
+            <version>${project.parent.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -102,10 +96,6 @@
             <version>${global_storm_version}</version>
             <scope>provided</scope>
             <exclusions>
-                <exclusion>
-                    <artifactId>kryo</artifactId>
-                    <groupId>com.esotericsoftware</groupId>
-                </exclusion>
                 <exclusion>
                     <artifactId>servlet-api</artifactId>
                     <groupId>javax.servlet</groupId>
@@ -173,6 +163,11 @@
                     <groupId>org.slf4j</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>${global_curator_version}</version>
         </dependency>
         <dependency>
             <groupId>org.atteo.classindex</groupId>
@@ -307,13 +302,13 @@
         </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>
-            <artifactId>curator-client</artifactId>
+            <artifactId>curator-recipes</artifactId>
             <version>${global_curator_version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-recipes</artifactId>
-            <version>${global_curator_version}</version>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>flux-core</artifactId>
+            <version>${global_flux_version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>
@@ -322,14 +317,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.storm</groupId>
-            <artifactId>flux-core</artifactId>
-            <version>${global_flux_version}</version>
-        </dependency>
-        <dependency>
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
             <version>2.0.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.metron</groupId>
+            <artifactId>metron-test-utilities</artifactId>
+            <version>${project.parent.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -367,6 +363,12 @@
             <groupId>com.clearspring.analytics</groupId>
             <artifactId>stream</artifactId>
             <version>2.9.5</version>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.metron</groupId>
+          <artifactId>metron-test-utilities</artifactId>
+          <version>${project.parent.version}</version>
+          <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -454,18 +456,7 @@
                                     <pattern>org.apache.commons.beanutils</pattern>
                                     <shadedPattern>org.apache.metron.beanutils</shadedPattern>
                                 </relocation>
-                                <relocation>
-                                    <pattern>com.esotericsoftware</pattern>
-                                    <shadedPattern>org.apache.metron.kryo</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>de.javakaffee.kryoserializers</pattern>
-                                    <shadedPattern>org.apache.metron.kryoserializers</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.apache.commons.validator</pattern>
-                                    <shadedPattern>org.apache.metron.commons.validator</shadedPattern>
-                                </relocation>
+
                             </relocations>
                             <transformers>
                                 <transformer

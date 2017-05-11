@@ -1,4 +1,4 @@
-// Generated from org/apache/metron/common/stellar/generated/Stellar.g4 by ANTLR 4.5
+// Generated from org/apache/metron/stellar/common/generated/Stellar.g4 by ANTLR 4.5
 package org.apache.metron.stellar.common.generated;
 
 //CHECKSTYLE:OFF
@@ -20,10 +20,15 @@ package org.apache.metron.stellar.common.generated;
  * limitations under the License.
  */
 
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
 import java.util.List;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
