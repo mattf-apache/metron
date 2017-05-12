@@ -38,7 +38,7 @@
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
-            <version>1.5.1</version>
+            <version>${global_commons_validator_version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.accumulo</groupId>

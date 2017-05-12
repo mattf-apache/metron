@@ -138,7 +138,7 @@
     <dependency>
       <groupId>commons-validator</groupId>
       <artifactId>commons-validator</artifactId>
-      <version>1.4.0</version>
+      <version>${global_commons_validator_version}</version>
     </dependency>
 
     <dependency>
