@@ -27,6 +27,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.metron.common.configuration.FieldTransformer;
 import org.apache.metron.common.configuration.SensorParserConfig;
 import org.apache.metron.stellar.dsl.Context;
+import org.apache.metron.stellar.dsl.IPProtocolIANAMapping;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
@@ -109,7 +110,7 @@ public class FieldTransformationTest {
   public void testValidSerde_simple() throws IOException {
     SensorParserConfig c = SensorParserConfig.fromBytes(Bytes.toBytes(config));
     Assert.assertEquals(1, c.getFieldTransformations().size());
-    Assert.assertEquals(IPProtocolTransformation.class, c.getFieldTransformations().get(0).getFieldTransformation().getClass());
+    Assert.assertEquals(IPProtocolIANAMapping.class, c.getFieldTransformations().get(0).getFieldTransformation().getClass());
     Assert.assertEquals(ImmutableList.of("protocol"), c.getFieldTransformations().get(0).getInput());
   }
 

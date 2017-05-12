@@ -19,9 +19,10 @@
 package org.apache.metron.common.field.transformation;
 
 import org.apache.metron.common.utils.ReflectionUtils;
+import org.apache.metron.stellar.dsl.IPProtocolIANAMapping;
 
 public enum FieldTransformations {
-  IP_PROTOCOL(new IPProtocolTransformation())
+  IP_PROTOCOL(new IPProtocolIANAMapping())
   ,REMOVE(new RemoveTransformation())
   ,STELLAR(new StellarTransformation())
   ;

@@ -20,7 +20,7 @@ package org.apache.metron.stellar.common;
 
 
 import org.apache.metron.stellar.dsl.Context;
-import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.FunctionResolver;
 import org.apache.metron.stellar.dsl.VariableResolver;
 
 import java.util.concurrent.TimeUnit;

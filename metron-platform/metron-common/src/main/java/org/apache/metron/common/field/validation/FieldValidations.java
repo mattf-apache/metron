@@ -18,26 +18,26 @@
 
 package org.apache.metron.common.field.validation;
 
-import org.apache.metron.common.field.validation.network.DomainValidation;
-import org.apache.metron.common.field.validation.network.EmailValidation;
-import org.apache.metron.common.field.validation.network.IPValidation;
-import org.apache.metron.common.field.validation.network.URLValidation;
-import org.apache.metron.common.field.validation.primitive.DateValidation;
-import org.apache.metron.common.field.validation.primitive.IntegerValidation;
-import org.apache.metron.common.field.validation.primitive.NotEmptyValidation;
-import org.apache.metron.common.field.validation.primitive.RegexValidation;
+import org.apache.metron.common.field.validation.network.DomainFieldValidation;
+import org.apache.metron.common.field.validation.network.EmailFieldValidation;
+import org.apache.metron.common.field.validation.network.IPFieldValidation;
+import org.apache.metron.common.field.validation.network.URLFieldValidation;
+import org.apache.metron.common.field.validation.primitive.DateFieldValidation;
+import org.apache.metron.common.field.validation.primitive.IntegerFieldValidation;
+import org.apache.metron.common.field.validation.primitive.NotEmptyFieldValidation;
+import org.apache.metron.common.field.validation.primitive.RegexFieldValidation;
 import org.apache.metron.common.utils.ReflectionUtils;
 
 public enum FieldValidations {
   STELLAR(new QueryValidation())
-  ,IP(new IPValidation())
-  ,DOMAIN(new DomainValidation())
-  ,EMAIL(new EmailValidation())
-  ,URL(new URLValidation())
-  ,DATE(new DateValidation())
-  ,INTEGER(new IntegerValidation())
-  ,REGEX_MATCH(new RegexValidation())
-  ,NOT_EMPTY(new NotEmptyValidation())
+  ,IP(new IPFieldValidation())
+  ,DOMAIN(new DomainFieldValidation())
+  ,EMAIL(new EmailFieldValidation())
+  ,URL(new URLFieldValidation())
+  ,DATE(new DateFieldValidation())
+  ,INTEGER(new IntegerFieldValidation())
+  ,REGEX_MATCH(new RegexFieldValidation())
+  ,NOT_EMPTY(new NotEmptyFieldValidation())
   ;
   private FieldValidation validation;
   FieldValidations(FieldValidation validation) {

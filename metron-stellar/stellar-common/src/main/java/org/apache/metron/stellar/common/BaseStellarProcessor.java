@@ -35,7 +35,7 @@ import org.apache.metron.stellar.dsl.ErrorListener;
 import org.apache.metron.stellar.dsl.ParseException;
 import org.apache.metron.stellar.dsl.StellarFunctions;
 import org.apache.metron.stellar.dsl.VariableResolver;
-import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.FunctionResolver;
 import org.apache.metron.stellar.common.evaluators.ArithmeticEvaluator;
 import org.apache.metron.stellar.common.evaluators.ComparisonExpressionWithOperatorEvaluator;
 import org.apache.metron.stellar.common.evaluators.NumberLiteralEvaluator;

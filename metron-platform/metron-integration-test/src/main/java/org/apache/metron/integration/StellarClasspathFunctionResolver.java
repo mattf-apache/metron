@@ -24,7 +24,7 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.metron.integration.components.MRComponent;
 import org.apache.metron.stellar.dsl.Context;
-import org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.ClasspathFunctionResolver;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Properties;
 
-import static org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver.Config.STELLAR_VFS_PATHS;
+import static org.apache.metron.stellar.dsl.resolver.ClasspathFunctionResolver.Config.STELLAR_VFS_PATHS;
 
 public class StellarClasspathFunctionResolver {
   static MRComponent component;

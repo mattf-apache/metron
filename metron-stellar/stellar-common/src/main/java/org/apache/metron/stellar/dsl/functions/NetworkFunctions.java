@@ -23,8 +23,8 @@ import com.google.common.collect.Iterables;
 import com.google.common.net.InternetDomainName;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.net.util.SubnetUtils;
-import org.apache.metron.stellar.dsl.BaseStellarFunction;
-import org.apache.metron.stellar.dsl.Stellar;
+import org.apache.metron.stellar.common.utils.ConversionUtils;
+import org.apache.metron.stellar.dsl.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -219,7 +219,35 @@ public class NetworkFunctions {
     }
   }
 
-  /**
+  @Stellar(name="TO_NAME"
+          , namespace = "PROTOCOL"
+          , description="Converts the IANA protocol number to the protocol name"
+          , params = {
+          "IANA Number"
+          }
+          , returns = "The protocol name associated with the IANA number."
+  )
+  public static class IPProtocolToName extends BaseStellarFunction {
+
+    @Override
+    public Object apply(List<Object> objects) throws ParseException {
+      Object keyObj = objects.get(0);
+      if(keyObj == null) {
+        return keyObj;
+      }
+      Integer key = ConversionUtils.convert(keyObj, Integer.class);
+      if(key == null ) {
+        return keyObj;
+      }
+      Object ret = IPProtocolIANAMapping.get(key);
+      if(ret == null ) {
+        return keyObj;
+      }
+      return ret;
+    }
+  }
+
+    /**
    * Extract the TLD.  If the domain is a normal domain, then we can handle the TLD via the InternetDomainName object.
    * If it is not, then we default to returning the last segment after the final '.'
    * @param idn

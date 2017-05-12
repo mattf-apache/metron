@@ -32,7 +32,7 @@ import org.apache.metron.stellar.dsl.MapVariableResolver;
 import org.apache.metron.stellar.dsl.StellarFunctionInfo;
 import org.apache.metron.stellar.dsl.StellarFunctions;
 import org.apache.metron.stellar.dsl.VariableResolver;
-import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.FunctionResolver;
 import org.apache.metron.stellar.common.StellarProcessor;
 import org.apache.metron.stellar.common.utils.JSONUtils;
 import org.jboss.aesh.console.Console;

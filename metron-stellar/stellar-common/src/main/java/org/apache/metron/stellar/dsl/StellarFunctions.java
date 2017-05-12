@@ -18,8 +18,8 @@
 
 package org.apache.metron.stellar.dsl;
 
-import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
-import org.apache.metron.stellar.dsl.functions.resolver.SingletonFunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.FunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.SingletonFunctionResolver;
 
 public class StellarFunctions {
 

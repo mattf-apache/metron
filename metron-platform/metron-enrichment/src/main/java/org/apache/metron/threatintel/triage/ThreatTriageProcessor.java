@@ -29,7 +29,7 @@ import org.apache.metron.common.configuration.enrichment.threatintel.ThreatTriag
 import org.apache.metron.stellar.dsl.Context;
 import org.apache.metron.stellar.dsl.MapVariableResolver;
 import org.apache.metron.stellar.dsl.VariableResolver;
-import org.apache.metron.stellar.dsl.functions.resolver.FunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.FunctionResolver;
 import org.apache.metron.stellar.common.StellarPredicateProcessor;
 import org.apache.metron.stellar.common.StellarProcessor;
 import org.apache.metron.stellar.common.utils.ConversionUtils;

@@ -22,7 +22,7 @@ package org.apache.metron.stellar.common;
 
 import org.adrianwalker.multilinestring.Multiline;
 import org.apache.metron.stellar.dsl.Context;
-import org.apache.metron.stellar.dsl.functions.resolver.ClasspathFunctionResolver;
+import org.apache.metron.stellar.dsl.resolver.ClasspathFunctionResolver;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

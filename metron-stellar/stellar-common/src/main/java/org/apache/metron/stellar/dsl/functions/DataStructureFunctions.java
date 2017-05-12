@@ -19,123 +19,12 @@ package org.apache.metron.stellar.dsl.functions;
 
 import org.apache.metron.stellar.dsl.BaseStellarFunction;
 import org.apache.metron.stellar.dsl.Stellar;
-import org.apache.metron.stellar.common.utils.BloomFilter;
-import org.apache.metron.stellar.common.utils.ConversionUtils;
-import org.apache.metron.stellar.common.utils.SerDeUtils;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 public class DataStructureFunctions {
-
-  @Stellar(name="ADD"
-          , namespace="BLOOM"
-          , description="Adds an element to the bloom filter passed in"
-          , params = { "bloom - The bloom filter"
-                     , "value* - The values to add"
-                     }
-          , returns = "Bloom Filter"
-          )
-  public static class BloomAdd extends BaseStellarFunction {
-
-    @Override
-    public Object apply(List<Object> args) {
-      BloomFilter<Object> filter = (BloomFilter)args.get(0);
-      for(int i = 1;i < args.size();++i) {
-        Object arg = args.get(i);
-        if(arg != null) {
-          filter.add(args.get(i));
-        }
-      }
-      return filter;
-    }
-  }
-
-  @Stellar(name="EXISTS"
-          , namespace="BLOOM"
-          , description="If the bloom filter contains the value"
-          , params = { "bloom - The bloom filter"
-                     , "value - The value to check"
-                     }
-          , returns = "True if the filter might contain the value and false otherwise"
-          )
-  public static class BloomExists extends BaseStellarFunction {
-
-    @Override
-    public Object apply(List<Object> args) {
-      if(args.size() == 0) {
-        return false;
-      }
-      BloomFilter<Object> filter = (BloomFilter)args.get(0);
-      if(args.size() > 1) {
-        Object arg = args.get(1);
-        if(arg == null) {
-          return false;
-        }
-        return filter.mightContain(arg);
-      }
-      return false;
-    }
-  }
-
-  @Stellar(name="INIT"
-         , namespace="BLOOM"
-          , description="Returns an empty bloom filter"
-          , params = { "expectedInsertions - The expected insertions"
-                     , "falsePositiveRate - The false positive rate you are willing to tolerate"
-                     }
-          , returns = "Bloom Filter"
-          )
-  public static class BloomInit extends BaseStellarFunction {
-
-    @Override
-    public Object apply(List<Object> args) {
-      int expectedInsertions = 100000;
-      float falsePositiveRate = 0.01f;
-      if(args.size() > 1) {
-        expectedInsertions = ConversionUtils.convert(args.get(0), Integer.class);
-      }
-      if(args.size() > 2) {
-        falsePositiveRate= ConversionUtils.convert(args.get(1), Float.class);
-      }
-      return new BloomFilter<>(SerDeUtils.SERIALIZER, expectedInsertions, falsePositiveRate);
-    }
-  }
-
-  @Stellar( name="MERGE"
-          , namespace="BLOOM"
-          , description="Returns a merged bloom filter"
-          , params = { "bloomfilters - A list of bloom filters to merge"
-                     }
-          , returns = "Bloom Filter or null if the list is empty"
-          )
-  public static class BloomMerge extends BaseStellarFunction {
-
-    @Override
-    public Object apply(List<Object> args) {
-      if(args.size() > 0) {
-        Object firstArg = args.get(0);
-        if(firstArg instanceof List) {
-          BloomFilter ret = null;
-          for(Object bf : (List)firstArg) {
-            if(bf instanceof BloomFilter) {
-              if(ret == null) {
-                ret = (BloomFilter)bf;
-              }
-              else {
-                ret.merge((BloomFilter)bf);
-              }
-            }
-          }
-          return ret;
-        }
-        else {
-          return null;
-        }
-      }
-      return null;
-    }
-  }
 
   @Stellar(name="IS_EMPTY"
           , description="Returns true if string or collection is empty or null and false if otherwise."
@@ -217,4 +106,61 @@ public class DataStructureFunctions {
       }
     }
   }
+
+  @Stellar(name="EXISTS"
+          ,namespace="MAP"
+          , description="Checks for existence of a key in a map."
+          , params = {
+          "key - The key to check for existence"
+          ,"map - The map to check for existence of the key"
+  }
+          , returns = "True if the key is found in the map and false if otherwise."
+  )
+  public static class MapExists extends BaseStellarFunction {
+
+    @Override
+    public Object apply(List<Object> list) {
+      if(list.size() < 2) {
+        return false;
+      }
+      Object key = list.get(0);
+      Object mapObj = list.get(1);
+      if(key != null && mapObj != null && mapObj instanceof Map) {
+        return ((Map)mapObj).containsKey(key);
+      }
+      return false;
+    }
+  }
+
+  @Stellar(name="GET"
+          ,namespace="MAP"
+          , description="Gets the value associated with a key from a map"
+          , params = {
+          "key - The key"
+          ,"map - The map"
+          ,"default - Optionally the default value to return if the key is not in the map."
+  }
+          , returns = "The object associated with the key in the map.  If no value is associated with the key and default is specified, then default is returned. If no value is associated with the key or default, then null is returned."
+  )
+  public static class MapGet extends BaseStellarFunction {
+    @Override
+    public Object apply(List<Object> objects) {
+      Object keyObj = objects.get(0);
+      Object mapObj = objects.get(1);
+      Object defaultObj = null;
+      if(objects.size() >= 3) {
+        defaultObj = objects.get(2);
+      }
+      if(keyObj == null || mapObj == null) {
+        return defaultObj;
+      }
+      Map<Object, Object> map = (Map)mapObj;
+      Object ret = map.get(keyObj);
+      if(ret == null && defaultObj != null) {
+        return defaultObj;
+      }
+      return ret;
+    }
+  }
+
 }

@@ -20,7 +20,6 @@ package org.apache.metron.stellar.common.network;
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 
-
 import static org.apache.metron.stellar.common.utils.StellarProcessorUtils.runWithArguments;
 
 public class NetworkFunctionsTest {
@@ -150,6 +149,14 @@ public class NetworkFunctionsTest {
   @Test
   public void urlToPathTest_unknowntld() {
     runWithArguments("URL_TO_PATH", "http://www.google.gmail/foo/bar", "/foo/bar");
+  }
+
+  @Test
+  public void ipProtocolToNameTest() {
+    runWithArguments("PROTOCOL_TO_NAME", 6, "TCP");
+    runWithArguments("PROTOCOL_TO_NAME", "6", "TCP");
+    runWithArguments("PROTOCOL_TO_NAME", 5000, null);
+    runWithArguments("PROTOCOL_TO_NAME", "chicken", "chicken");
   }
 
 
