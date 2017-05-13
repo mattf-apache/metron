@@ -296,7 +296,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>${global_shade_version}</version>
                 <configuration>
-                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
                     <artifactSet>
                         <excludes>
                             <exclude>*slf4j*</exclude>

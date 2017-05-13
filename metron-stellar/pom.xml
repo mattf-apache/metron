@@ -42,7 +42,7 @@
     </licenses>
     <modules>
         <module>stellar-common</module>
-        <module>../stellar-analytics</module>
+        <module>stellar-analytics</module>
     </modules>
     <dependencies>
         <dependency>
