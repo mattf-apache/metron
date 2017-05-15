@@ -19,8 +19,6 @@
 package org.apache.metron.stellar.dsl.validators.primitive;
 
 import org.apache.metron.stellar.dsl.validators.SimpleValidation;
-import org.apache.metron.stellar.dsl.Stellar;
-import org.apache.metron.stellar.dsl.StellarFunctionFromListPredicate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,21 +30,6 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class DateValidation extends SimpleValidation<SimpleDateFormat> {
-
-  @Stellar(name="IS_DATE"
-          ,description = "Determines if the date contained in the string conforms to the specified format."
-          ,params = {
-            "date - The date in string form"
-          , "format - The format of the date"
-                    }
-          ,returns = "True if the date is in the specified format and false if otherwise."
-          )
-  public static class IS_DATE extends StellarFunctionFromListPredicate {
-
-    public IS_DATE() {
-      super(new DateValidation());
-    }
-  }
 
   /**
    * Evaluates this predicate on the given argument.

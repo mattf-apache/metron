@@ -20,8 +20,6 @@ package org.apache.metron.stellar.dsl.validators.network;
 
 import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.metron.stellar.dsl.validators.SimpleValidation;
-import org.apache.metron.stellar.dsl.Stellar;
-import org.apache.metron.stellar.dsl.StellarFunctionFromListPredicate;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,20 +28,6 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class IPValidation extends SimpleValidation<InetAddressValidator> {
-
-  @Stellar(name="IS_IP"
-          , description = "Determine if an string is an IP or not. Excess arguments after the first two are ignored."
-          , params = {
-              "ip - An object which we wish to test is an ip"
-             ,"type (optional) - Object of string or collection type (e.g. list) one of IPV4 or IPV6 or both.  The default is IPV4."
-                     }
-          , returns = "True if the string is an IP and false otherwise.")
-  public static class IS_IP extends StellarFunctionFromListPredicate {
-
-    public IS_IP() {
-      super(new IPValidation());
-    }
-  }
 
   protected enum IPType {
      IPV4(ip -> InetAddressValidator.getInstance().isValidInet4Address(ip))

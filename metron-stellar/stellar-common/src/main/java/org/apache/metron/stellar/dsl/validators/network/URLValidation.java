@@ -20,26 +20,10 @@ package org.apache.metron.stellar.dsl.validators.network;
 
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.metron.stellar.dsl.validators.SimpleValidation;
-import org.apache.metron.stellar.dsl.Stellar;
-import org.apache.metron.stellar.dsl.StellarFunctionFromListPredicate;
 
 import java.util.function.Predicate;
 
 public class URLValidation extends SimpleValidation<UrlValidator> {
-
-  @Stellar(name="IS_URL"
-          ,description = "Tests if a string is a valid URL"
-          ,params = {
-              "url - The string to test"
-                    }
-          , returns = "True if the string is a valid URL and false if otherwise."
-          )
-  public static class IS_URL extends StellarFunctionFromListPredicate {
-
-    public IS_URL() {
-      super(new URLValidation());
-    }
-  }
 
   private Predicate<Object> pred = url -> UrlValidator.getInstance().isValid(url == null?null:url.toString());
 

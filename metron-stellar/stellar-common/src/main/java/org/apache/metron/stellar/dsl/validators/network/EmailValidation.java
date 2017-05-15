@@ -20,25 +20,10 @@ package org.apache.metron.stellar.dsl.validators.network;
 
 import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.metron.stellar.dsl.validators.SimpleValidation;
-import org.apache.metron.stellar.dsl.Stellar;
-import org.apache.metron.stellar.dsl.StellarFunctionFromListPredicate;
 
 import java.util.function.Predicate;
 
 public class EmailValidation extends SimpleValidation<EmailValidator> {
-
-  @Stellar(name="IS_EMAIL"
-          ,description = "Tests if a string is a valid email address"
-          ,params = {
-              "address - The string to test"
-                    }
-          , returns = "True if the string is a valid email address and false if otherwise.")
-  public static class IS_EMAIL extends StellarFunctionFromListPredicate {
-
-    public IS_EMAIL() {
-      super(new EmailValidation());
-    }
-  }
 
   private Predicate<Object> pred = email -> EmailValidator.getInstance().isValid(email == null?null:email.toString());
 

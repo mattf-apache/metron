@@ -20,26 +20,10 @@ package org.apache.metron.stellar.dsl.validators.network;
 
 import org.apache.commons.validator.routines.DomainValidator;
 import org.apache.metron.stellar.dsl.validators.SimpleValidation;
-import org.apache.metron.stellar.dsl.Stellar;
-import org.apache.metron.stellar.dsl.StellarFunctionFromListPredicate;
 
 import java.util.function.Predicate;
 
 public class DomainValidation extends SimpleValidation<DomainValidator> {
-
-  @Stellar(name="IS_DOMAIN"
-          ,description = "Tests if a string refers to a valid domain name.  Domain names are evaluated according" +
-          " to the standards RFC1034 section 3, and RFC1123 section 2.1."
-          ,params = {
-              "address - The string to test"
-                    }
-          , returns = "True if the string refers to a valid domain name and false if otherwise")
-  public static class IS_DOMAIN extends StellarFunctionFromListPredicate {
-
-    public IS_DOMAIN() {
-      super(new DomainValidation());
-    }
-  }
 
   private Predicate<Object> pred = domain -> DomainValidator.getInstance().isValid(domain == null?null:domain.toString());
 
