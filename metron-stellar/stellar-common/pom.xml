@@ -177,6 +177,13 @@
             <optional>true</optional>
             <version>${global_kryo_serializers_version}</version>
         </dependency>
+        <dependency>
+            <!-- junit dependency added with default scope to allow inclusion of StellarProcessorUtils in main jar.
+                 It is excluded from the uber-jar. -->
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${global_junit_version}</version>
+        </dependency>
     </dependencies>
     <reporting>
         <plugins>
@@ -243,6 +250,7 @@
                     <artifactSet>
                         <excludes>
                             <exclude>*slf4j*</exclude>
+                            <exclude>junit</exclude>
                         </excludes>
                     </artifactSet>
                 </configuration>
@@ -253,7 +261,13 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <shadedClassifierName>uber</shadedClassifierName>
                             <relocations>
+                                <relocation>
+                                    <pattern>com.fasterxml.jackson</pattern>
+                                    <shadedPattern>org.apache.metron.stellar.jackson</shadedPattern>
+                                </relocation>
                                 <relocation>
                                     <pattern>com.google.common</pattern>
                                     <shadedPattern>org.apache.metron.stellar.guava</shadedPattern>
@@ -281,7 +295,15 @@
                                 </relocation>
 -->
                             </relocations>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.slf4j.impl*</exclude>
+                                    <exclude>org.slf4j:slf4j-log4j*</exclude>
+                                    <exclude>junit</exclude>
+                                </excludes>
+                            </artifactSet>
                             <transformers>
+                                <transformer implementation="org.atteo.classindex.ClassIndexTransformer"/>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
                                     <resources>
@@ -306,7 +328,14 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.atteo.classindex</groupId>
+                        <artifactId>classindex-transformer</artifactId>
+                        <version>${global_classindex_version}</version>
+                    </dependency>
+                </dependencies>
+	    </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>

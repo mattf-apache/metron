@@ -41,7 +41,11 @@ import java.util.stream.StreamSupport;
 public class StellarProcessorUtils {
 
     /**
-     * This ensures the basic contract of a stellar expression is adhered to:
+     * This utility class is intended for use while unit testing Stellar operators.
+     * It is included in the "main" code so third-party operators will not need
+     * a test dependency on Stellar's test-jar.
+     *
+     * This class ensures the basic contract of a stellar expression is adhered to:
      * 1. Validate works on the expression
      * 2. The output can be serialized and deserialized properly
      *
