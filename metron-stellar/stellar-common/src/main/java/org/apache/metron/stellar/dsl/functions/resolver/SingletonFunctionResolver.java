@@ -23,12 +23,15 @@ package org.apache.metron.stellar.dsl.functions.resolver;
  */
 public class SingletonFunctionResolver extends ClasspathFunctionResolver {
 
-  private static SingletonFunctionResolver INSTANCE = new SingletonFunctionResolver();
+  private static class SFRHelper {
+    private static final FunctionResolver INSTANCE =
+            new SingletonFunctionResolver();
+  }
 
   private SingletonFunctionResolver() {}
 
   public static FunctionResolver getInstance() {
-    return INSTANCE;
+    return SFRHelper.INSTANCE;
   }
 
 }
